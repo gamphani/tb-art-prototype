@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    
+    <script language="javascript">
+      tstUsername = "";
+      tstCurrentDate = "2011/03/01";
+    </script>
+    <link href="stylesheets/mateme.css?1298272209" media="screen" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/touch-fancy.css?1298272209" media="screen" rel="stylesheet" type="text/css" />
+    <script src="javascripts/preload.js?1298272209" type="text/javascript"></script>
+    <script src="javascripts/touchscreenToolkit.js?1298272209" type="text/javascript"></script>
+
+    <script src="javascripts/dateselector.js?1298272209" type="text/javascript"></script>
+  </head>
+  <body id="mateme">  
+    <div id="container">
+      <div id="content">
+        <div id="description" style="color:#777;position:absolute;margin-top:-70px;">
+            
+        </div>
+        
+          <p id="flash_notice" style="color: green">You have been logged out.</p>
+
+        
+        
+          <script src="javascripts/barcode.js?1298272209" type="text/javascript"></script>
+  <script>
+    var tt_cancel_destination = "login.html"
+    barcodeFocusOnce = true;
+    barcodeScanAction = gotoNextPage;
+
+    function inform() {
+      $('infoBar'+tstCurrentPage).innerHTML = "Muli bwanji, enter your user information or scan your id card. <span style='font-size:0.6em;float:right'>(TB Version: 1.0 alpha - <span >Tuesday, 01-Mar-2011</span>)</span>";  
+    }           
+
+  </script>
+
+  
+  
+  <form action="tasks.html" method="post">
+
+<label for="location">Location</label>
+    <input field_type="number" helpText="Workstation location" id="location" name="location" tt_onLoad="inform();" type="text" /><br>
+
+
+
+
+    <label for="login">Username</label>
+    <input helpText="Enter user name" id="login" name="login" textCase="lower" tt_onLoad="inform(); barcodeId = 'touchscreenInput0';" type="text" /><br>
+
+    <label for="password">Password</label>
+
+    <input helpText="Enter password" id="password" name="password" textCase="lower" tt_onLoad="inform(); barcodeId = 'touchscreenInput1';" type="password" /><br>
+
+    <input name="commit" type="submit" value="Submit" />
+  </form>
+
+  <div id="popupBox"  align="center">
+    <p id="p1">Verifying your username and password</p>
+    <p id="p2">Please wait......</p>
+  </div>
+
+  
+        <div id="footer">
+        </div>    
+      </div>  
+    </div>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    
+    <script language="javascript">
+      tstUsername = "admin";
+      tstCurrentDate = "2011/03/02";
+
+    </script>
+    <link href="stylesheets/mateme.css?1298272209" media="screen" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/touch-fancy.css?1298272209" media="screen" rel="stylesheet" type="text/css" />
+    <script src="javascripts/preload.js?1298272209" type="text/javascript"></script>
+    <script src="javascripts/touchscreenToolkit.js?1298272209" type="text/javascript"></script>
+
+    <script src="javascripts/dateselector.js?1298272209" type="text/javascript"></script>
+  </head>
+  <body id="mateme">  
+    <div id="container">
+      <div id="content">
+        <div id="description" style="color:#777;position:absolute;margin-top:-70px;">
+            
+        </div>
+        
+        
+        <script>
+  var tt_cancel_destination = "overview.html"
+</script>
+
+<form action="overview.html">
+  <input id="patient_id" name="patient_id" type="hidden" value="2" />
+  <label for="encounter_type">Select Task</label>
+  <select name="encounter_type" id="encounter_type" multiple="multiple" tt_onLoad="$('touchscreenInput0').style.display='none';$('clearButton').style.display='none';">
+    
+      <option>TB Reception</option>
+    
+      <option>Sputum</option>
+    
+      <option>Update HIV Status</option>
+    
+  </select>
+
+  <input name="commit" type="submit" value="Finish" />    
+</form>
+  
+        <div id="footer">
+        </div>    
+      </div>  
+    </div>
+  </body>
+</html>

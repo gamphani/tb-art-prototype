@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    
+    <script language="javascript">
+      tstUsername = "admin";
+      tstCurrentDate = "2011/03/01";
+    </script>
+    <link href="stylesheets/mateme.css?1298272209" media="screen" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/touch-fancy.css?1298272209" media="screen" rel="stylesheet" type="text/css" />
+    <script src="javascripts/preload.js?1298272209" type="text/javascript"></script>
+    <script src="javascripts/touchscreenToolkit.js?1298272209" type="text/javascript"></script>
+
+    <script src="javascripts/dateselector.js?1298272209" type="text/javascript"></script>
+  </head>
+  <body id="mateme">  
+    <div id="container">
+      <div id="content">
+        <div id="description" style="color:#777;position:absolute;margin-top:-70px;">
+            
+        </div>
+        
+        
+        <script type="text/javascript">
+  
+  var tt_cancel_destination = "/patients/relationships?patient_id="
+  
+
+  function changeNextButtonText(text){
+    $('nextButton').innerHTML = "<span>" + text + "</span>";  
+  }
+    
+  function newSearch(){
+    if (window.location.href.match(/\?identifier/))
+      window.location.href = "/people/identifiers";
+    else
+      window.location.href = "/people/search";
+  }
+
+  function createNewSearchButton(){
+    $('clearButton').innerHTML = "<span>New Search</span>";  
+    $('clearButton').setAttribute("onmousedown","newSearch();");  
+  }
+
+ function redirect(){
+      $('nextButton').setAttribute("onmousedown", "window.location = 'new_patient.html'");
+    }
+
+</script>
+
+ 
+ 
+
+  <form action="select" method="get">
+    
+      <label for="person">No patients were found:</label>
+        <select name="person" id="person" tt_onLoad="redirect();">
+            
+        <option value="0" onmousedown="changeNextButtonText('New Patient')">Create a new person with the name Joe Doe</option>
+      
+    </select>
+    <input type="hidden" name="identifier" value="" />
+    <input type="hidden" name="gender" value="M" />
+    <input type="hidden" name="given_name" value="Joe" />
+
+    <input type="hidden" name="family_name" value="Doe" />
+    <input type="hidden" name="family_name2" value="" />
+    <input type="hidden" name="address2" value="" />
+    <input type="hidden" name="relation" value="" />
+  </form>  
+        <div id="footer">
+        </div>    
+      </div>  
+    </div>
+  </body>
+
+</html>

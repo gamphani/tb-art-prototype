@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    
+    <script language="javascript">
+      tstUsername = "admin";
+      tstCurrentDate = "2011/03/02";
+    </script>
+    <link href="stylesheets/mateme.css?1298272209" media="screen" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/touch-fancy.css?1298272209" media="screen" rel="stylesheet" type="text/css" />
+    <script src="javascripts/preload.js?1298272209" type="text/javascript"></script>
+    <script src="javascripts/touchscreenToolkit.js?1298272209" type="text/javascript"></script>
+
+    <script src="javascripts/dateselector.js?1298272209" type="text/javascript"></script>
+  </head>
+  <body id="mateme">  
+    <!--div id="container"-->
+      <div id="content">
+        <div id="description" style="color:#777;position:absolute;margin-top:-70px;">
+            
+        </div>
+        
+        
+        <script>
+  
+  var tt_cancel_destination = "overview.html"
+  
+
+  var skipped = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  
+  function seen(page) {
+    for (var i = page; i >= 0; i--) {
+      skipped[i] = 1;
+    }
+  }
+
+   function redirect(){
+      $('nextButton').setAttribute("onmousedown", "window.location ='new_guardian.html'");
+    }
+
+</script>
+
+<form action="overview.html" method="post">
+  
+  <input absoluteMax="2011" absoluteMin="1890" field_type="number" helpText="Year" id="set_date_year" min="1940" name="person[birth_year]" tt_onLoad="seen(tstCurrentPage);" tt_pageStyleClass="Numeric NumbersOnly" type="text" />
+
+  <select helpText="Month" id="set_date_month" name="person[birth_month]"><option value="" selected="selected"></option>
+<option value="1">Jan</option>
+<option value="2">Feb</option>
+<option value="3">Mar</option>
+<option value="4">Apr</option>
+<option value="5">May</option>
+<option value="6">Jun</option>
+<option value="7">Jul</option>
+
+<option value="8">Aug</option>
+<option value="9">Sep</option>
+<option value="10">Oct</option>
+<option value="11">Nov</option>
+<option value="12">Dec</option>
+<option value="Unknown">Unknown</option></select>
+
+
+  <input field_type="number" helpText="Day" id="set_date_day" name="person[birth_day]" tt_onLoad="getDayOfMonthPicker($('person_birth_year').value, $('person_birth_month').value)" type="text" />
+
+
+  <input id="person_patient" name="person[patient]" type="hidden" value="" />
+
+  <input id="relation" name="relation" type="hidden" value="" />
+  
+  <input id="identifier" name="identifier" type="hidden" value="" />
+
+  <input name="commit" type="submit" value="Create person" />
+  
+</form>
+
+  
+        <div id="footer">
+        </div>    
+      </div>  
+    <!--/div-->
+  </body>
+</html>
+

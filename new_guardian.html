@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    
+    <script language="javascript">
+      tstUsername = "admin";
+      tstCurrentDate = "2011/03/02";
+    </script>
+    <link href="stylesheets/mateme.css?1298272209" media="screen" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/touch-fancy.css?1298272209" media="screen" rel="stylesheet" type="text/css" />
+    <script src="javascripts/preload.js?1298272209" type="text/javascript"></script>
+    <script src="javascripts/touchscreenToolkit.js?1298272209" type="text/javascript"></script>
+
+    <script src="javascripts/dateselector.js?1298272209" type="text/javascript"></script>
+  </head>
+  <body id="mateme">  
+    <div id="container">
+      <div id="content">
+        <div id="description" style="color:#777;position:absolute;margin-top:-70px;">
+            
+        </div>
+        
+        
+        <script>
+  
+  var tt_cancel_destination = "/patients/relationships?patient_id="
+  
+
+  var skipped = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  
+  function seen(page) {
+    for (var i = page; i >= 0; i--) {
+      skipped[i] = 1;
+    }
+  }
+
+   function redirect(){
+      $('nextButton').setAttribute("onmousedown", "window.location ='dashboard.html'");
+    }
+</script>
+
+<form action="/people/create" method="post">
+
+  
+  <input field_type="alpha" helpText="First name of guardian" id="guardian_fname" name="guardian_fname" type="text" />
+  <input field_type="alpha" helpText="Last name of guardian" id="guardian_lname" name="guardian_lname" type="text" />
+  <select helpText="Sex" id="guardian_sex" name="guardian_sex"><option value=""></option>
+<option value="MALE">MALE</option>
+<option value="FEMALE">FEMALE</option></select>
+  <select helpText="Guardian relationship" id="guardian_relationship" name="guardian_relationship" tt_onLoad="redirect();"><option value=""></option>
+<option value="SISTER/BROTHER">SISTER/BROTHER</option>
+
+<option value="SPOUSE">SPOUSE</option>
+<option value="CHILD">CHILD</option>
+<option value="PARENT">PARENT</option></select>
+
+  <input id="person_patient" name="person[patient]" type="hidden" value="" />
+
+  <input id="relation" name="relation" type="hidden" value="" />
+  
+  <input id="identifier" name="identifier" type="hidden" value="" />
+
+  <input name="commit" type="submit" value="Create person" />
+
+  
+</form>
+  
+        <div id="footer">
+        </div>    
+      </div>  
+    </div>
+  </body>
+</html>

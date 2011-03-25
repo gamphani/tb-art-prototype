@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    
+    <script language="javascript">
+      tstUsername = "admin";
+      tstCurrentDate = "2011/02/28";
+      fname = "";
+      lname = "";
+  
+
+    </script>
+    <link href="stylesheets/mateme.css?1298272209" media="screen" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/touch-fancy.css?1298272209" media="screen" rel="stylesheet" type="text/css" />
+    <script src="javascripts/preload.js?1298272209" type="text/javascript"></script>
+    <script src="javascripts/touchscreenToolkit.js?1298272209" type="text/javascript"></script>
+
+    <script src="javascripts/dateselector.js?1298272209" type="text/javascript"></script>
+  </head>
+  <body id="mateme">  
+    <div id="container">
+      <div id="content">
+        <div id="description" style="color:#777;position:absolute;margin-top:-70px;">
+            
+        </div>
+        
+        
+        <script type="text/javascript">
+  
+          var tt_cancel_destination = "overview.html";
+         
+  function changeNextButtonText(text){
+    $('nextButton').innerHTML = "<span>" + text + "</span>";  
+  }
+    
+  function newSearch(){
+    if (window.location.href.match(/\?identifier/))
+      window.location.href = "dashboard.html";
+    else
+      window.location.href = "search.html";
+  }
+
+  function createNewSearchButton(){
+    $('clearButton').innerHTML = "<span>New Search</span>";  
+    $('clearButton').setAttribute("onmousedown","newSearch();");  
+  }
+
+function updateValues(inputId){
+  if (inputId == 0){
+    fname = $('touchscreenInput0').value
+  }else if (inputId == 1){
+    lname = $('touchscreenInput1').value
+  }
+}
+
+function updateNext(inputId){
+  if (inputId == 2){
+     if (fname == 'Dave' && lname == "Phiri" ){
+      $('nextButton').setAttribute("onmousedown", "window.location ='search_results_found.html'");
+    }else{
+      $('nextButton').setAttribute("onmousedown", "window.location ='search_results_not_found.html'");
+    }
+
+  }else {
+    $('nextButton').setAttribute("onmousedown", "updateValues("+inputId+");gotoNextPage();");
+  }
+    }
+
+
+</script>
+
+ 
+
+ 
+  <form action="search" method="get">
+    <input ajaxURL="/person_names/given_names?search_string=" allowFreeText="true" field_type="alpha" helpText="First name" id="given_name" name="given_name" type="text" tt_onUnload="fname=this.value" tt_onLoad="updateNext(0);" />
+    <div>
+    
+
+
+    <input ajaxURL="/person_names/family_names?search_string=" allowFreeText="true" field_type="alpha" helpText="Last name" id="family_name" name="family_name" type="text" tt_onLoad="updateNext(1);" /> 
+    Gender: <select helpText="Gender" id="gender" name="gender" tt_onLoad="updateNext(2);"><option value=""></option>
+<option value="M">Male</option>
+<option value="F">Female</option></select> 
+    <input id="create_patient" name="create_patient" type="hidden" />
+    <input id="relation" name="relation" type="hidden" />
+    <input name="commit" type="submit" value="Find person" />
+  </form> 
+  
+  
+  <div id="footer" class="dark"></div>  
+      </div>  
+    </div>
+  </body>
+</html>

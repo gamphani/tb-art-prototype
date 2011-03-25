@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    
+    <script language="javascript">
+      tstUsername = "admin";
+      tstCurrentDate = "2011/03/02";
+    </script>
+    <link href="stylesheets/mateme.css?1298272209" media="screen" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/touch-fancy.css?1298272209" media="screen" rel="stylesheet" type="text/css" />
+    <script src="javascripts/preload.js?1298272209" type="text/javascript"></script>
+    <script src="javascripts/touchscreenToolkit.js?1298272209" type="text/javascript"></script>
+
+    <script src="javascripts/dateselector.js?1298272209" type="text/javascript"></script>
+  </head>
+  <body id="mateme">  
+    <!--div id="container"-->
+      <div id="content">
+        <div id="description" style="color:#777;position:absolute;margin-top:-70px;">
+            
+        </div>
+        
+        
+        <script>
+  
+  var tt_cancel_destination = "search_results_not_found.html"
+  
+
+  var skipped = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  
+  function seen(page) {
+    for (var i = page; i >= 0; i--) {
+      skipped[i] = 1;
+    }
+  }
+
+   function redirect(){
+      $('nextButton').setAttribute("onmousedown", "window.location ='new_guardian.html'");
+    }
+
+</script>
+
+<form action="first_visit.html" method="post">
+
+  <input ajaxURL="/person_names/given_names?search_string=" allowFreeText="true" condition="$(&quot;given_name&quot;).value == &quot;&quot; || skipped[tstCurrentPage] == 1" field_type="alpha" helpText="First name" id="given_name" name="person[names][given_name]" tt_onLoad="seen(tstCurrentPage);" type="text" value="Joe" />
+  
+  <input ajaxURL="/person_names/family_names?search_string=" allowFreeText="true" condition="$(&quot;family_name&quot;).value == &quot;&quot; || skipped[tstCurrentPage] == 1" field_type="alpha" helpText="Last name" id="family_name" name="person[names][family_name]" tt_onLoad="seen(tstCurrentPage);" type="text" value="Doe" />
+
+  Gender: <select condition="$(&quot;gender&quot;).value == &quot;&quot; || skipped[tstCurrentPage] == 1" helpText="Gender" id="gender" name="person[gender]" tt_onLoad="seen(tstCurrentPage);"><option value=""></option>
+<option value="M" selected="selected">Male</option>
+<option value="F">Female</option></select>
+
+  
+
+  <input absoluteMax="2011" absoluteMin="1890" field_type="number" helpText="Year of Birth" id="person_birth_year" min="1940" name="person[birth_year]" tt_onLoad="seen(tstCurrentPage);" tt_pageStyleClass="Numeric NumbersOnly" type="text" />
+
+  <select condition="$(&quot;person_birth_year&quot;).value.toLowerCase() != &quot;unknown&quot;" helpText="Month of Birth" id="person_birth_month" name="person[birth_month]"><option value="" selected="selected"></option>
+<option value="1">Jan</option>
+<option value="2">Feb</option>
+<option value="3">Mar</option>
+<option value="4">Apr</option>
+<option value="5">May</option>
+<option value="6">Jun</option>
+<option value="7">Jul</option>
+
+<option value="8">Aug</option>
+<option value="9">Sep</option>
+<option value="10">Oct</option>
+<option value="11">Nov</option>
+<option value="12">Dec</option>
+<option value="Unknown">Unknown</option></select>
+
+  <input absoluteMax="121" absoluteMin="1" condition="$(&quot;person_birth_year&quot;).value == &quot;Unknown&quot;" field_type="number" helpText="Age Estimate" id="person_age_estimate" name="person[age_estimate]" tt_pageStyleClass="Numeric NumbersOnly" type="text" /> 
+
+  <input condition="($(&quot;person_birth_year&quot;).value != &quot;Unknown&quot;) &amp;&amp; ($(&quot;person_birth_month&quot;).value != &quot;Unknown&quot;)" field_type="number" helpText="Birth Day" id="person_birth_day" name="person[birth_day]" tt_onLoad="getDayOfMonthPicker($('person_birth_year').value, $('person_birth_month').value)" type="text" />
+
+  <input ajaxURL="/person_addresses/address2?search_string=" allowFreeText="true" condition="$(&quot;address2&quot;).value == &quot;&quot; || skipped[tstCurrentPage] == 1" field_type="alpha" helpText="Home Village" id="address2" name="person[addresses][address2]" tt_onLoad="seen(tstCurrentPage);" type="text" value="" />
+  
+  <input ajaxURL="/person_addresses/traditional_authority?search_string=" allowFreeText="true" field_type="alpha" helpText="Ancestral Traditional Authority (TA)" id="person_addresses_county_district" name="person[addresses][county_district]" type="text" />
+
+  <input ajaxURL="/person_addresses/village?search_string=" allowFreeText="true" field_type="alpha" helpText="Current city, place or area of residence" id="person_addresses_city_village" name="person[addresses][city_village]" type="text" />
+  
+  <input allowFreeText="true" field_type="alpha" helpText="Land mark" id="person_landmark" name="person[landmark]" type="text" />
+  
+  <input allowFreeText="true" field_type="number" helpText="Ground Phone Number" id="person_home_phone_number" name="person[home_phone_number]" type="text" />
+
+  <input allowFreeText="true" field_type="number" helpText="Cell Phone Number" id="person_cell_phone_number" name="person[cell_phone_number]" type="text" />
+
+
+  <select allowFreeText="true" helpText="Occupation" id="person_occupation" name="person[occupation]" tt_onLoad="seen(tstCurrentPage);"><option value=" "> </option>
+
+<option value="Business">Business</option>
+<option value="Farmer">Farmer</option>
+<option value="Healthcare Worker">Healthcare Worker</option>
+<option value="Housewife">Housewife</option>
+<option value="Police">Police</option>
+<option value="Soldier">Soldier</option>
+<option value="Student">Student</option>
+<option value="Teacher">Teacher</option>
+<option value="Other">Other</option></select>
+
+  
+  <input id="person_patient" name="person[patient]" type="hidden" value="" />
+
+  <input id="relation" name="relation" type="hidden" value="" />
+  
+  <input id="identifier" name="identifier" type="hidden" value="" />
+
+  <input name="commit" type="submit" value="Create person" />
+  
+</form>
+
+  
+        <div id="footer">
+        </div>    
+      </div>  
+    <!--/div-->
+  </body>
+</html>

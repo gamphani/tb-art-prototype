@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>Clinic Index</title>
+    <script language="javascript">
+      tstUsername = "admin";
+      tstCurrentDate = "2011/02/28";
+      var tt_cancel_destination = null;
+    </script>
+    <link href="stylesheets/touch-fancy.css?1298272209" media="screen" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/dashboard.css?1298272209" media="screen" rel="stylesheet" type="text/css" />
+    <script src="javascripts/barcode.js?1298272209" type="text/javascript"></script>
+
+    <script src="javascripts/jquery-1.3.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {    
+        $('#logout').click(function() { window.location = 'login.html' })
+        $('#find').click(function() { window.location = 'search.html' })
+        //if ($('#staging')) $('#staging').click(function() { window.location = 'http://staging/clinic' })        
+        $('#change_task').click(function() { window.location = 'tasks.html' })        
+        $('#set_date').click(function() { window.location = 'set_date.html' })        
+    
+        session_datetime = ''
+
+        if (session_datetime != ''){
+          document.getElementById('set_date').innerHTML = '<span>Reset date</span>'
+          $('#set_date').click(function() { window.location = 'set_date.html' })        
+        } else {
+          document.getElementById('set_date').innerHTML = '<span>Set date</span>'
+          $('#set_date').click(function() { window.location = 'set_date.html' })        
+        }
+        }) 
+
+    </script>
+    <style type="text/css">
+      #tab {
+        height:312px;
+      }
+      #barcode {
+        background:transparent none repeat scroll 0 0;
+        border-color:-moz-use-text-color -moz-use-text-color silver;
+        border-style:none none solid;
+        border-width:medium medium 1px;
+        font-family:"Nimbus Sans L","Arial Narrow",sans-serif;
+        font-size:2.2em;
+        padding-left:5px;
+        width:400px;      
+      }
+      #header div {
+        font-weight:normal;
+        float:none;
+        clear:both;
+      }
+    </style>
+    
+  </head>
+  <body id="container">  
+    <!--div id="container"-->      
+      <div id="content">
+        <div id="header" style="height:160px;margin-top:-15px;padding-left:20px;">
+
+          <h1>TB Reception</h1>
+          <div id="version" style="padding-top:44px;">TB Version: 1.0 alpha - <span >Monday, 28-Feb-2011</span></div>
+          <div id="user" style="margin-top:-4px;">Logged in as admin</div>
+          <form id='barcodeForm' action="/people/search">
+            <div style="float: left; font-size: 25px; font-style: normal; font-weight: bold;">Scan patient barcode:</div>
+            <input class="touchscreenTextInput" id="barcode" name="identifier" style="position:absolute" type="text" value=""/>
+
+            <input name="commit" style="display:none" type="submit" value="Submit" />
+          </form>
+        </div>
+        
+        <div id="nav" class="nav">
+  <ul>
+    <li><a class="active" href='/clinic/'>Overview</a></li>
+    
+    <!--li><a  href=''>Reports</a></li-->
+    <!--li><a  href='/clinic/supervision'>Supervision</a></li-->
+
+    <!--li><a  href='/clinic/properties'>Properties</a></li-->
+    <!--li><a  href='/clinic/printing'>Printing</a></li-->
+    <!--li><a  href='/clinic/users'>Users</a></li-->
+    <li><a  href=''>Administration</a></li>
+    
+  </ul>
+</div>
+
+<script type="text/javascript">
+  jQuery(document).ready(function($) {
+  }) 
+</script>
+<style type="text/css">
+  #stats {
+    width:98%;
+    border:1px solid black;
+    margin:10px;    
+    background:white;
+  } 
+  #stats td, #stats th {
+    text-align:center;
+  }
+</style>
+
+<div id="tab" style="height: 461px;">
+  <div class="panel" style="width:980px">
+    <h2>Current Statistics</h2>
+    <div style="height:970px;overflow:auto;">
+    <table id="stats" style="height: 400px;" cellpadding="10">
+      <tr>
+        <th style="text-align:left;">Encounter Type</th>
+        <th>Me</th>
+
+        <th>Today</th>
+        <th>This Year</th>
+        <th>Total to Date</th>
+      </tr>
+      
+        <tr class="even">
+          <td style="text-align:left;">REGISTRATION</td>
+          <td></td>
+
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      
+        <tr class="odd">
+          <td style="text-align:left;">SPUTUM SUBMISSION</td>
+          <td></td>
+          <td></td>
+
+          <td></td>
+          <td></td>
+        </tr>
+              
+    </table>
+    </div>
+  </div>        
+</div>
+  
+        <div id="footer" class="dark">
+          <div id="buttons" class="buttons" style="top:0px">
+
+            <button id="logout" class="red left"><span>Logout</span></button>
+            <button id="find" class="green"><span>Find Name</span></button>
+            
+            <!--button id="staging" class="yellow"><span>Staging</span></button-->
+			        
+			        
+              <button id="change_task" class=""><span>Change Task</span></button>
+              <button id="set_date" class=""><span>Set date</span></button>
+            
+          </div>          
+        </div>    
+      </div>  
+    <!--/div-->
+
+  </body>
+</html>
